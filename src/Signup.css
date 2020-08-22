@@ -1,0 +1,42 @@
+.Signup{
+    margin: 130px auto;
+    text-align: center;
+}
+.Signup form input{
+    width: 250px;
+    padding: 8px;
+    border-radius: 16px;
+    font-size: 17px;
+    border: 1px solid transparent;
+    background: var(--background-color);
+    margin-bottom: 10px;
+}
+.Signup form input:focus{
+    outline:none;
+    border: 1px solid var(--twitter-color);
+    border-radius: 16px;
+}
+.Signup form input[type=submit]{
+    background-color: var(--twitter-color) !important;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+.Signup form > p{
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: red;
+}
+.Signup > p{
+    font-size: 18px;
+    font-weight: bold;
+}
+.Signup > p a{
+    text-decoration:none;
+    color: var(--twitter-color);
+}
+.progress{
+    width: 100%;
+    margin-bottom: 10px;
+    
+}

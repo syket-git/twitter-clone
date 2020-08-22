@@ -1,0 +1,29 @@
+.welcome{
+    margin: 150px auto;
+    text-align:center;
+
+}
+.welcome a{
+    text-decoration:none;
+}
+.twitter{
+    color: var(--twitter-color);
+    font-size: 50px !important;
+}
+.signup{
+    background-color: var(--twitter-color) !important;
+    color: white !important;
+    width: 250px !important;
+    border-radius: 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+}
+.login{
+    border: 2px solid var(--twitter-color) !important;
+    color: var(--twitter-color) !important;
+    width: 250px !important;
+    border-radius: 20px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    margin-top: 10px !important;
+}

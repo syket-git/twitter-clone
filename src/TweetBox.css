@@ -1,0 +1,58 @@
+.tweetBox {
+    border-bottom: 10px solid var(--background-color);
+}
+
+.tweetBox > form {
+    display: flex;
+    flex-direction: column;
+}
+.tweetBox__input{
+    padding: 20px;
+    display:flex;
+    align-items: flex-start;
+}
+.tweetBox__input textarea{
+    margin-top:8px;
+    margin-left: 15px;
+    border:none;
+    font-size: 18px;
+    width: 100%;
+    font-family: 'Questrial', sans-serif;
+    resize: none;
+    
+}
+.tweetBox__input textarea::-webkit-scrollbar{
+    display:none;
+}
+
+.tweetBox__input textarea:focus{
+    outline:none;
+}
+.tweetBox__tweetButton{
+    background-color: var(--twitter-color) !important; 
+    border:none !important;
+    color:white !important;
+    font-weight: 700 !important;
+    text-transform: inherit !important;
+    width: 88px;
+    height: 40px !important;
+    margin-left: auto !important;
+    border-radius: 30px !important;
+}
+.tweetBox__upload{
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    margin: 10px 28px;
+}
+.custom-file-input{
+    display:none;
+}
+.custom-file-label{
+    color: var(--twitter-color) !important;
+    cursor: pointer;
+}
+.MuiButtonBase-root.Mui-disabled {
+    cursor: not-allowed !important;
+    pointer-events: unset !important;
+}
