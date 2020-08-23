@@ -27,9 +27,10 @@ function getModalStyle() {
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
-    width: '500px',
+    width: '70vw !important',
     height: '90vh',
     overflow: 'scroll',
+    paddingLeft: '10px !important',
     backgroundColor: theme.palette.background.paper,
     border: '2px solid var(--twitter-color)',
     boxShadow: theme.shadows[5],
@@ -184,6 +185,7 @@ const Post = ({
         style={{
           display: 'flex !important',
           alighItems: 'flex-start !important',
+          padding: '6px !important'
         }}
       >
         <Avatar src={auth.user?.photoURL} alt={auth.user?.displayName} />
