@@ -13,27 +13,26 @@ export const AuthContextProvider = (props) => {
 
 export const useAuth = () => useContext(AuthContext);
 
-
 export function AuthenticatedRoute({ children, ...rest }) {
-    const auth = useAuth();
-    return (
-      <Route
-        {...rest}
-        render={({ location }) =>
-          auth.user ? (
-            <Redirect
-              to={{
-                pathname: "/home",
-                state: { from: location }
-              }}
-            />
-          ) : (
-            children
-          )
-        }
-      />
-    );
-  }
+  const auth = useAuth();
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        auth.user ? (
+          <Redirect
+            to={{
+              pathname: '/home',
+              state: { from: location },
+            }}
+          />
+        ) : (
+          children
+        )
+      }
+    />
+  );
+}
 
 export function PrivateRoute({ children, ...rest }) {
   const auth = useAuth();
@@ -56,13 +55,9 @@ export function PrivateRoute({ children, ...rest }) {
   );
 }
 
-
-
-
-
 const Auth = () => {
   const [user, setUser] = useState(null);
-  console.log(user);
+
   const signup = (name, email, password, url) => {
     firebaseApp
       .auth()
@@ -89,25 +84,26 @@ const Auth = () => {
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
         setUser(res.user);
-        alert("Login Successful!");
-        window.location.replace("/home");
+        alert('Login Successful!');
+        window.location.replace('/home');
       })
       .catch((error) => alert(error.message));
   };
 
   const logout = () => {
-      firebaseApp.auth().signOut()
-      .then(res => {
-          setUser(null)
-          window.location.replace("/")
+    firebaseApp
+      .auth()
+      .signOut()
+      .then((res) => {
+        setUser(null);
+        window.location.replace('/');
       })
-      .catch(error => alert(error.message))
-  }
+      .catch((error) => alert(error.message));
+  };
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(function (usr) {
       if (usr) {
-          console.log("state changed", usr)
         setUser(usr);
       } else {
         // No user is signed in.
@@ -119,9 +115,7 @@ const Auth = () => {
     signup,
     user,
     login,
-    logout
+    logout,
   };
 };
 export default Auth;
-
-

@@ -9,8 +9,8 @@ const Login = () => {
   const auth = useAuth();
   const { register, handleSubmit, errors, reset } = useForm();
   const onSubmit = (data) => {
-    auth.login(data.email, data.password)
-    console.log(data);
+    auth.login(data.email, data.password);
+
     reset();
   };
   return (

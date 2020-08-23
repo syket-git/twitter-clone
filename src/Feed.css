@@ -20,4 +20,15 @@
 .feed__header > h1{
     font-size: 20px;
     font-weight: 800px;
+    text-align:right;
+}
+@media all and (max-width: 1145px){
+    .feed{
+        flex: 0.6; 
+    }
+}
+@media all and (max-width: 960px){
+    .feed{
+        flex: 1; 
+    }
 }

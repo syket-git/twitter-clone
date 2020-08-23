@@ -8,9 +8,12 @@ import NotFound from './NotFound';
 import Welcome from './Welcome';
 import Signup from './Signup';
 import Login from './Login';
-import { AuthContextProvider, PrivateRoute, AuthenticatedRoute } from './useAuth';
+import {
+  AuthContextProvider,
+  PrivateRoute,
+  AuthenticatedRoute,
+} from './useAuth';
 import Logout from './Logout';
-
 
 function App() {
   return (

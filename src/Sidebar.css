@@ -50,3 +50,35 @@
     font-weight: 600;
     margin-top: 4px;
 }
+.menu{
+    display:none !important;
+}
+
+@media all and (max-width: 1145px){
+    .sidebar {
+        position: fixed;
+        transform: translateX(-30rem);
+        width: 20rem;
+        height: 100%;
+        background-color:white;
+        transition: .5s;
+        margin-top: 73px;
+        color: black;
+        border-top: .5px solid white;
+        border-top-right-radius: 5px;
+        z-index: 1;
+    }
+    .menu{
+        display:block !important;
+        margin-top: 16px;
+        margin-left: 16px;
+        cursor: pointer;
+        position: absolute;
+        top: 0%;
+        left: 5%;
+        z-index: 999;
+    }
+    .open{
+        transform: translateX(0);
+    }
+}

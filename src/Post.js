@@ -84,14 +84,12 @@ const Post = ({
   }, [postId]);
 
   useEffect(() => {
-    const isLove = loves?.find(({id, love}) => (
-      love.uid === auth.user?.uid
-    ))
-    console.log(isLove)
-    if(isLove !== undefined){
-      setLove(true)
+    const isLove = loves?.find(({ id, love }) => love.uid === auth.user?.uid);
+
+    if (isLove !== undefined) {
+      setLove(true);
     }
-  }, [auth.user.uid, loves])
+  }, [auth.user.uid, loves]);
 
   const handleOpen = () => {
     setOpen(true);
@@ -122,16 +120,12 @@ const Post = ({
 
   const outLove = () => {
     setLove(false);
-    
-    const isLove = loves?.find(({id, love}) => (
-      love.uid === auth.user?.uid
-    ))
-    console.log(isLove)
-    if(isLove !== undefined){
-      outLoves(isLove.id)
+
+    const isLove = loves?.find(({ id, love }) => love.uid === auth.user?.uid);
+
+    if (isLove !== undefined) {
+      outLoves(isLove.id);
     }
-    
-    
   };
   const inLove = () => {
     setLove(true);
@@ -141,6 +135,21 @@ const Post = ({
   const body = (
     <div style={modalStyle} className={classes.paper}>
       <div>
+        <div>
+          <span
+            style={{
+              fontSize: '21px',
+              fontWeight: 'bold',
+              width: '100%',
+              textAlign: 'right',
+              float: 'right',
+              cursor: 'pointer',
+            }}
+            onClick={() => setOpen(false)}
+          >
+            x
+          </span>
+        </div>
         {totalComments?.map(({ id, comment }) => (
           <div style={{ display: 'flex', alignItems: 'flex-start' }}>
             <Avatar src={comment.avatar} alt={comment.displayName} />
@@ -160,17 +169,6 @@ const Post = ({
           <div className="post__header">
             <h4>{displayName}</h4>
             {verified === true && <VerifiedUserIcon />}
-            <p>{username}</p>
-            <span>.</span>
-            <p>
-              <Moment format="D MMM YYYY" withTitle>
-                {timestamp !== null
-                  ? new Date(timestamp.seconds * 1000).toLocaleDateString(
-                      'en-US'
-                    )
-                  : null}
-              </Moment>
-            </p>
           </div>
           <div className="post__body">
             <p>{text}</p>
@@ -262,11 +260,11 @@ const Post = ({
           ) : (
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <FavoriteBorderIcon
-              onClick={inLove}
-              style={{ color: 'red' }}
-              fontSize="small"
-            />
-            <span
+                onClick={inLove}
+                style={{ color: 'red' }}
+                fontSize="small"
+              />
+              <span
                 style={{
                   marginLeft: '5px',
                   fontSize: '16px',

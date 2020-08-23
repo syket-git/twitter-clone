@@ -35,13 +35,12 @@ const Signup = () => {
           .getDownloadURL()
           .then((url) =>
             auth.signup(data.name, data.email, data.password, url)
-          )
-          setTimeout(() => {
-            setOpenProgress(false);
-            reset();
-          }, 2000)
+          );
+        setTimeout(() => {
+          setOpenProgress(false);
+          reset();
+        }, 2000);
       }
-      
     );
   };
 
@@ -64,7 +63,6 @@ const Signup = () => {
         />
         <br />
         {errors.name && <p>This field is required!</p>}
-        
         <input
           name="email"
           ref={register({ required: true })}
@@ -88,7 +86,6 @@ const Signup = () => {
           onChange={handleChange}
         />{' '}
         <br />
-        
         {openProgress && (
           <progress className="progress" value={progress} max="100" />
         )}

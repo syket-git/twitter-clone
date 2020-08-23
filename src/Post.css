@@ -7,6 +7,7 @@
 .post__body > img{
     border-radius: 20px;
     width: 100%;
+    object-fit: contain;
 }
 .post__main__body{
     margin-left: 10px;
@@ -40,4 +41,25 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
+}
+
+@media all and (max-width: 500px){
+    .post__header{
+        font-size: 10px;
+    }
+    .post{
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+    .post__header > .MuiSvgIcon-root {
+        margin-right: 4px !important;
+    }
+    .makeStyles-paper-1 {
+        width: 260px !important;
+    }
+}
+@media all and (max-width: 330px){
+    .post__header{
+        font-size: 9px;
+    }
 }

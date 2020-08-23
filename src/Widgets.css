@@ -45,3 +45,14 @@
 .timeline-Body::-webkit-scrollbar{
     display:none !important;    
 }
+
+@media all and (max-width: 1145px){
+    .widgets{
+        flex: 0.4; 
+    }
+}
+@media all and (max-width: 960px){
+    .widgets{
+        display:none; 
+    }
+}

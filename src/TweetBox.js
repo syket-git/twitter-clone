@@ -10,12 +10,12 @@ const TweetBox = () => {
   const [image, setImage] = useState(null);
   const [progress, setProgress] = useState(0);
   const [openProgress, setOpenProgress] = useState(false);
- 
+
   const handleChange = (e) => {
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
     }
-  }
+  };
 
   const handleClick = () => {
     setOpenProgress(true);
@@ -39,46 +39,40 @@ const TweetBox = () => {
           .then((url) => {
             db.collection('posts').add({
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-              avatar: auth.user.photoURL, 
-              displayName: auth.user.displayName, 
-              username: "@" + auth.user.displayName.replace(/\s/g, '').toLowerCase(), 
-              verified: true, 
-              text: text, 
-              image: url
+              avatar: auth.user.photoURL,
+              displayName: auth.user.displayName,
+              username:
+                '@' + auth.user.displayName.replace(/\s/g, '').toLowerCase(),
+              verified: true,
+              text: text,
+              image: url,
             });
 
-          setTimeout(() => {
-            setOpenProgress(false)
-            setImage(null)
-            setText('')
-          }, 2000)
-        })
+            setTimeout(() => {
+              setOpenProgress(false);
+              setImage(null);
+              setText('');
+            }, 2000);
+          });
       }
-    )
-  }
-
-  
-
+    );
+  };
 
   const auth = useAuth();
   return (
     <div className="tweetBox">
       <form>
         <div className="tweetBox__input">
-          <Avatar
-            src={auth.user?.photoURL}
-            alt={auth.user?.displayName}
-          />
+          <Avatar src={auth.user?.photoURL} alt={auth.user?.displayName} />
           {/* <input type="text" /> */}
           <textarea
             value={text}
-            onChange={e => setText(e.target.value)}
+            onChange={(e) => setText(e.target.value)}
             placeholder="What's happening?"
             cols="30"
             rows="2"
           ></textarea>
         </div>
-        
 
         <div className="tweetBox__upload">
           <div className="custom-file">
@@ -94,7 +88,13 @@ const TweetBox = () => {
             </label>
           </div>
 
-          <Button onClick={handleClick} disabled={!text}  className="tweetBox__tweetButton ">Tweet</Button>
+          <Button
+            onClick={handleClick}
+            disabled={!text}
+            className="tweetBox__tweetButton "
+          >
+            Tweet
+          </Button>
         </div>
         {openProgress && (
           <progress className="progress" value={progress} max="100" />
